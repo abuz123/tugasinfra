@@ -1,0 +1,799 @@
+/* General & Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #007bff; /* Biru cerah */
+    --primary-dark: #0056b3;  /* Biru lebih gelap */
+    --secondary-color: #28a745; /* Hijau cerah */
+    --accent-color: #fd7e14; /* Orange */
+    --text-dark: #333;
+    --text-light: #f4f4f4;
+    --bg-light: #f9f9f9;
+    --bg-dark: #1f2a38;
+    --border-color: #eee;
+    --shadow-light: 0 4px 8px rgba(0,0,0,0.05);
+    --shadow-heavy: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+/* Headings */
+h1, h2, h3 {
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+.section-alt-bg {
+    background-color: var(--bg-light); /* Lebih terang dari body untuk kontras halus */
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+    padding: 30px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.section-description {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem auto;
+    font-size: 1.1rem;
+    color: #666;
+}
+
+/* --- Login Page Specific Styling --- */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+.login-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-container h1 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    color: var(--primary-dark);
+}
+
+.login-container p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.error-message {
+    color: #dc3545; /* Merah */
+    font-size: 0.9rem;
+    margin-top: 15px;
+    display: none; /* Hidden by default */
+}
+
+/* --- Header & Navigation --- */
+header {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    padding: 20px 0;
+    box-shadow: var(--shadow-heavy);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Untuk responsif */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo i {
+    font-size: 2.2rem;
+    margin-right: 10px;
+    color: var(--accent-color);
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    color: var(--text-light);
+    white-space: nowrap;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav ul li {
+    margin-left: 30px;
+}
+
+.main-nav ul li a {
+    color: var(--text-light);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 5px 0;
+    position: relative;
+}
+
+.main-nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s ease;
+}
+
+.main-nav ul li a:hover::after,
+.main-nav ul li a.active::after {
+    width: 100%;
+}
+
+.main-nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+.hamburger {
+    display: none; /* Hidden on desktop */
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text-light);
+}
+
+/* --- Call to Action Buttons --- */
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    white-space: nowrap; /* Mencegah tombol pecah */
+}
+
+.cta-button:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.secondary-button {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--text-light);
+    border: 2px solid var(--accent-color);
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    font-size: 1rem;
+    margin-left: 15px;
+    white-space: nowrap; /* Mencegah tombol pecah */
+}
+
+.secondary-button:hover {
+    background-color: var(--accent-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* --- Hero Section (Beranda) --- */
+.hero-section {
+    background: url('https://via.placeholder.com/1500x700/007bff/ffffff?text=Komputer+& Ilkom') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 150px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Overlay gelap */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content h2 {
+    font-size: 3.5rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: white;
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+}
+
+.cta-buttons {
+    margin-bottom: 40px;
+}
+
+.topik-nav {
+    margin-top: 50px;
+}
+
+.topik-nav h3 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.topik-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.topik-nav ul li a {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.topik-nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* --- Tentang Kami Section --- */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.about-item {
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: var(--shadow-light);
+    border-left: 5px solid var(--primary-color);
+}
+
+.about-item h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-dark);
+}
+
+.about-item h3 i {
+    font-size: 2.2rem;
+    margin-right: 15px;
+    color: var(--primary-color);
+}
+
+/* --- Materi Pembelajaran Section --- */
+.material-topics {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.topic-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.topic-button:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.topic-button.active {
+    background-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.2);
+}
+
+.material-content-display {
+    min-height: 200px;
+    display: flex;
+    align-items: center; /* Untuk centering pesan default */
+    justify-content: center;
+    flex-direction: column;
+    padding: 40px;
+}
+
+.material-content-display h3 {
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.material-content-display p {
+    line-height: 1.8;
+    color: #555;
+    text-align: center; /* Centering for initial message */
+}
+
+/* --- Kursus Online / Tutorial Section --- */
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.course-item {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+    border-top: 5px solid var(--accent-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.course-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--primary-dark);
+}
+
+.course-item p {
+    font-size: 0.95rem;
+    color: #666;
+    flex-grow: 1; /* Agar links di bawah tetap sejajar */
+    margin-bottom: 20px;
+}
+
+.course-links {
+    margin-top: auto; /* Push links to the bottom */
+}
+
+.course-link-btn {
+    display: flex;
+    align-items: center;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.course-link-btn:hover {
+    background-color: #218838; /* Hijau lebih gelap */
+    transform: translateX(5px);
+}
+
+.course-link-btn i {
+    margin-right: 8px;
+    font-size: 1.1rem;
+}
+
+
+/* --- Blog / Artikel Section --- */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.blog-post {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+    overflow: hidden;
+}
+
+.blog-post img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.blog-post h3 {
+    padding: 20px 20px 0 20px;
+    font-size: 1.4rem;
+    color: var(--primary-dark);
+}
+
+.blog-post .post-snippet {
+    padding: 0 20px 15px 20px;
+    font-size: 0.95rem;
+    color: #555;
+    height: 70px; /* Batasi tinggi snippet */
+    overflow: hidden;
+}
+
+.blog-post .read-more {
+    display: block;
+    padding: 15px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    text-align: right;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.blog-post .read-more i {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.blog-post .read-more:hover {
+    background-color: var(--primary-dark);
+}
+
+.blog-post .read-more:hover i {
+    transform: translateX(5px);
+}
+
+/* --- Kontak Section --- */
+.contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.contact-form {
+    flex: 2;
+    min-width: 300px;
+    max-width: 600px;
+    border-left: 5px solid var(--primary-color);
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 280px;
+    max-width: 400px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contact-info h3 {
+    color: white;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.contact-info p i {
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+.contact-info a {
+    color: white;
+    text-decoration: underline;
+}
+.contact-info a:hover {
+    color: var(--accent-color);
+}
+
+
+.contact-form .form-group label {
+    color: var(--text-dark);
+}
+
+.contact-form .form-group input,
+.contact-form .form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    resize: vertical;
+}
+
+.contact-form .form-group input:focus,
+.contact-form .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.social-media {
+    margin-top: 25px;
+    display: flex;
+    gap: 20px;
+}
+
+.social-media a {
+    color: white;
+    font-size: 1.8rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-media a:hover {
+    color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+.location-text {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px dashed rgba(255,255,255,0.3);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9rem;
+    border-top: 5px solid var(--primary-color);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 1024px) {
+    .hero-content h2 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .main-nav {
+        display: none; /* Hide nav by default on mobile */
+        width: 100%;
+        margin-top: 15px;
+        flex-direction: column;
+        text-align: center;
+        background-color: var(--bg-dark); /* Ensure it contrasts */
+        padding-bottom: 10px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .main-nav.active {
+        display: flex; /* Show when active */
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .main-nav ul li {
+        margin: 10px 0;
+    }
+
+    .main-nav ul li a {
+        padding: 10px 0;
+        display: block;
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger */
+    }
+
+    .logo h1 {
+        font-size: 1.5rem; /* Smaller logo title */
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .hero-section {
+        padding: 100px 0;
+    }
+
+    .hero-content h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .secondary-button {
+        margin-left: 0; /* Remove left margin for stacking */
+    }
+
+    .topik-nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .topik-nav ul li {
+        margin-bottom: 10px;
+    }
+
+    .about-grid, .course-grid, .blog-grid {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+    }
+
+    .material-topics {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .topic-button {
+        width: 80%; /* Lebar tombol pada mobile */
+        max-width: 300px;
+    }
+
+    .contact-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-form, .contact-info {
+        max-width: 100%; /* Full width */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+    .cta-button, .secondary-button {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+    .login-container {
+        padding: 30px 20px;
+    }
+    .login-container h1 {
+        font-size: 1.8rem;
+    }
+}

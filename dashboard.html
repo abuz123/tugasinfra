@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendidikan Ilmu Komputer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-terminal"></i>
+                <h1>Pendidikan Ilmu Komputer</h1>
+            </div>
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#materials">Materi Pembelajaran</a></li>
+                    <li><a href="#courses">Kursus Online</a></li>
+                    <li><a href="#blog">Blog / Artikel</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger" id="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. Beranda -->
+        <section id="home" class="hero-section">
+            <div class="container hero-content">
+                <h2>Belajar Ilmu Komputer Dari Dasar Hingga Mahir!</h2>
+                <p>Platform interaktif ini didedikasikan untuk Anda yang ingin mendalami berbagai cabang Ilmu Komputer, mulai dari dasar pemrograman hingga kecerdasan buatan.</p>
+                <div class="cta-buttons">
+                    <a href="#materials" class="cta-button">Mulai Belajar Sekarang</a>
+                    <a href="#courses" class="secondary-button">Jelajahi Kursus</a>
+                </div>
+                <div class="topik-nav">
+                    <h3>Topik Utama:</h3>
+                    <ul>
+                        <li><a href="#materials" onclick="showMaterialContent('Pemrograman Dasar')">Pemrograman</a></li>
+                        <li><a href="#materials" onclick="showMaterialContent('Struktur Data & Algoritma')">Struktur Data</a></li>
+                        <li><a href="#materials" onclick="showMaterialContent('Jaringan Komputer')">Jaringan</a></li>
+                        <li><a href="#materials" onclick="showMaterialContent('Keamanan Siber')">Keamanan</a></li>
+                        <li><a href="#materials" onclick="showMaterialContent('Kecerdasan Buatan')">AI</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Tentang Kami -->
+        <section id="about" class="section-padding section-alt-bg">
+            <div class="container">
+                <h2>Tentang Kami</h2>
+                <div class="about-grid">
+                    <div class="about-item">
+                        <h3><i class="fas fa-lightbulb"></i> Visi & Misi</h3>
+                        <p><strong>Visi:</strong> Menjadi platform pembelajaran Ilmu Komputer terkemuka yang mudah diakses oleh semua kalangan.</p>
+                        <p><strong>Misi:</strong> Menyediakan materi berkualitas tinggi, kursus interaktif, dan panduan belajar yang komprehensif untuk mempersiapkan individu menghadapi tantangan teknologi masa depan.</p>
+                    </div>
+                    <div class="about-item">
+                        <h3><i class="fas fa-user-tie"></i> Siapa Pengembangnya</h3>
+                        <p>Platform ini dikembangkan oleh <strong>Muhammad Abrar</strong>, individu dengan passion mendalam di bidang teknologi dan pendidikan. Kami berdedikasi untuk berbagi pengetahuan dan mendorong semangat belajar di komunitas Ilmu Komputer.</p>
+                    </div>
+                    <div class="about-item">
+                        <h3><i class="fas fa-bullseye"></i> Tujuan Platform</h3>
+                        <p>Tujuan utama kami adalah mendemokratisasikan pendidikan Ilmu Komputer. Kami ingin menyediakan sumber daya belajar yang terstruktur dan mudah dipahami, membantu siswa, profesional, dan siapa pun yang tertarik untuk mengembangkan keterampilan teknis mereka.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Materi Pembelajaran -->
+        <section id="materials" class="section-padding">
+            <div class="container">
+                <h2>Materi Pembelajaran</h2>
+                <p class="section-description">Jelajahi topik-topik fundamental dalam Ilmu Komputer. Klik salah satu topik untuk melihat penjelasannya.</p>
+                <div class="material-topics">
+                    <button class="topic-button" onclick="showMaterialContent('Pemrograman Dasar')">Pemrograman Dasar</button>
+                    <button class="topic-button" onclick="showMaterialContent('Struktur Data & Algoritma')">Struktur Data & Algoritma</button>
+                    <button class="topic-button" onclick="showMaterialContent('Jaringan Komputer')">Jaringan Komputer</button>
+                    <button class="topic-button" onclick="showMaterialContent('Sistem Operasi')">Sistem Operasi</button>
+                    <button class="topic-button" onclick="showMaterialContent('Keamanan Siber')">Keamanan Siber</button>
+                    <button class="topic-button" onclick="showMaterialContent('Kecerdasan Buatan')">Kecerdasan Buatan</button>
+                </div>
+                <div id="materialContentDisplay" class="material-content-display card">
+                    <p>Silakan pilih topik di atas untuk menampilkan detailnya.</p>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!-- 4. Kursus Online / Tutorial -->
+        <section id="courses" class="section-padding section-alt-bg">
+            <div class="container">
+                <h2>Kursus Online & Tutorial</h2>
+                <p class="section-description">Perdalam pemahaman Anda melalui daftar kursus pilihan dari berbagai platform.</p>
+                <div class="course-grid">
+                    <div class="course-item card">
+                        <h3>Pengantar Python untuk Pemula</h3>
+                        <p>Pelajari dasar-dasar pemrograman Python dari nol. Ideal untuk yang baru mulai belajar coding.</p>
+                        <div class="course-links">
+                            <a href="https://www.youtube.com/watch?v=kYJvYg2Xk8c" target="_blank" class="course-link-btn"><i class="fab fa-youtube"></i> Video Tutorial (FreeCodeCamp)</a>
+                            <a href="https://www.datacamp.com/courses/introduction-to-python-for-data-science" target="_blank" class="course-link-btn"><i class="fas fa-file-pdf"></i> Kursus Online (DataCamp)</a>
+                        </div>
+                    </div>
+                    <div class="course-item card">
+                        <h3>Struktur Data & Algoritma dengan C++</h3>
+                        <p>Memahami bagaimana data disimpan dan diorganisir, serta efisiensi berbagai algoritma.</p>
+                        <div class="course-links">
+                            <a href="https://www.youtube.com/playlist?list=PL_zS8ky_nf_MdJwmC4C4M7P9H_wHkIuUu" target="_blank" class="course-link-btn"><i class="fab fa-youtube"></i> Playlist Video (Abdul Bari)</a>
+                            <a href="https://www.geeksforgeeks.org/data-structures/" target="_blank" class="course-link-btn"><i class="fas fa-file-alt"></i> Artikel & Contoh (GeeksforGeeks)</a>
+                        </div>
+                    </div>
+                    <div class="course-item card">
+                        <h3>Dasar-dasar Jaringan Komputer</h3>
+                        <p>Mulai dari protokol dasar hingga konsep arsitektur jaringan dan model OSI/TCP-IP.</p>
+                        <div class="course-links">
+                            <a href="https://www.youtube.com/playlist?list=PLD_QNY1d-i3j_oH_gLwM5G0y2tC-f_9G0" target="_blank" class="course-link-btn"><i class="fab fa-youtube"></i> Video Pembelajaran (Professor Messer)</a>
+                            <a href="https://www.cloudflare.com/learning/network-layer/what-is-the-internet/" target="_blank" class="course-link-btn"><i class="fas fa-file-pdf"></i> PDF Pengantar (Cloudflare)</a>
+                        </div>
+                    </div>
+                     <div class="course-item card">
+                        <h3>Memulai dengan Kecerdasan Buatan (AI)</h3>
+                        <p>Jelajahi konsep dasar AI, Machine Learning, dan aplikasinya di dunia nyata.</p>
+                        <div class="course-links">
+                            <a href="https://www.youtube.com/watch?v=JJWzJ8Rjb9w" target="_blank" class="course-link-btn"><i class="fab fa-youtube"></i> Video AI Explained</a>
+                            <a href="https://cs.stanford.edu/people/eroberts/courses/soco/2004-05/11.ai/introduction/AIintro.html" target="_blank" class="course-link-btn"><i class="fas fa-file-alt"></i> Pengantar AI (Stanford)</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Blog / Artikel -->
+        <section id="blog" class="section-padding">
+            <div class="container">
+                <h2>Blog & Artikel Terbaru</h2>
+                <p class="section-description">Dapatkan wawasan terkini mengenai tren teknologi, tips belajar, dan inovasi.</p>
+                <div class="blog-grid">
+                    <div class="blog-post card">
+                        <img src="https://via.placeholder.com/300x150/add8e6/ffffff?text=AI+Future" alt="Gambar Artikel AI">
+                        <h3>Masa Depan AI: Dari Chatbot Hingga Otomasi Penuh</h3>
+                        <p class="post-snippet">Menganalisis bagaimana Kecerdasan Buatan mengubah lanskap industri dan kehidupan sehari-hari...</p>
+                        <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="blog-post card">
+                        <img src="https://via.placeholder.com/300x150/d3d3d3/ffffff?text=CyberSecurity" alt="Gambar Artikel Keamanan Siber">
+                        <h3>5 Tips Esensial untuk Menjaga Keamanan Siber Anda</h3>
+                        <p class="post-snippet">Lindungi diri Anda dari ancaman online dengan praktik terbaik keamanan siber...</p>
+                        <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="blog-post card">
+                        <img src="https://via.placeholder.com/300x150/ffc0cb/ffffff?text=Python+Tips" alt="Gambar Artikel Python">
+                        <h3>Mempercepat Alur Kerja Anda dengan Python Scripting</h3>
+                        <p class="post-snippet">Pelajari bagaimana script Python sederhana dapat mengotomatisasi tugas repetitif...</p>
+                        <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Kontak -->
+        <section id="contact" class="section-padding section-alt-bg">
+            <div class="container">
+                <h2>Kontak Kami</h2>
+                <p class="section-description">Punya pertanyaan atau ingin berkolaborasi? Hubungi kami!</p>
+                <div class="contact-content">
+                    <form class="contact-form card">
+                        <h3>Kirim Pesan kepada Kami</h3>
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Anda</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Pesan Anda</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="cta-button">Kirim Pesan</button>
+                    </form>
+                    <div class="contact-info card">
+                        <h3>Informasi Kontak</h3>
+                        <p><i class="fas fa-envelope"></i> Email: <a href="mailto:abrarz200206@gmail.com">abrarz200206@gmail.com</a></p>
+                        <p><i class="fas fa-phone"></i> Telepon: +62 822-4745-2259</p>
+                        <div class="social-media">
+                            <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Pusat Belajar Teknologi, Kota Pendidikan, Indonesia</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Pendidikan Ilmu Komputer. Hak Cipta Dilindungi Undang-Undang.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
